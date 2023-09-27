@@ -14,6 +14,11 @@ import reportWebVitals from './reportWebVitals';
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+// Якщо ви хочете почати вимірювати ефективність у своєму додатку, передайте функцію
+// для реєстрації результатів (наприклад: reportWebVitals(console.log))
+// або надіслати на кінцеву точку аналітики. Читайте також: https://bit.ly/CRA-vitals
+
 // reportWebVitals();
 class Square extends React.Component {
   render() {
