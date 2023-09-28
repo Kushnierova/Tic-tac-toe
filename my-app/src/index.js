@@ -21,8 +21,23 @@ import reportWebVitals from "./reportWebVitals";
 
 // reportWebVitals();
 class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+
+  //❗Примітка
+  //❗У класах JavaScript при визначенні конструктора підкласу ви завжди повинні викликати super.
+  //❗ Класові компоненти React, що мають constructor, повинні починатися з виклику super(props).
+
   render() {
-    return <button className="square">{this.props.value}</button>;
+    return (
+      <button className="square" onClick={() => this.props.onClick()}>
+        {this.props.value}
+      </button>
+    );
   }
 }
 
@@ -35,8 +50,26 @@ class Board extends React.Component {
   // ❗React приймає цей опис і відтворює результат.
   // ❗Зокрема, render повертає React-елемент — полегшену версію того, що треба відрендерити.
   // ❗🆎Рéндеринг, комп'ютерна візуалізація (англ. rendering — візуалізація, проявлення, відмальовування, подання)
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = "X";
+    this.setState({ squares: squares });
+  }
+
   renderSquare(i) {
-    return <Square value={i} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
   }
 
   render() {
